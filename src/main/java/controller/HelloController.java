@@ -21,7 +21,7 @@ public class HelloController {
     @GetMapping("/hello")
     public String admin(){
         System.out.println(itemRepository.findAll());
-        System.out.println("Howle");
+        System.out.println("Howle Raj");
         return ("<h1>Welcome admin</h1>");
     }
 
