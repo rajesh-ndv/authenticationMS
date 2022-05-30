@@ -18,5 +18,12 @@ pipeline {
                 sh 'mvn test'
             }
         }
+        stage('Deploy'){
+            steps{
+                sh 'git checkout main'
+                sh 'git merge develop'
+                sh 'git push origin main'
+            }
+        }
     }
 }
