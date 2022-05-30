@@ -25,7 +25,6 @@ pipeline {
                     sh 'git merge develop'
                     sh 'echo $GIT_USER_NAME'
                     sh 'echo $GIT_PASSWORD'
-                    sh 'git config --local credential.helper "!f() { echo username=\\$GIT_USER_NAME; echo password=\\$GIT_PASSWORD; }; f"'
                     sh 'git push origin main'
                 }
             }
