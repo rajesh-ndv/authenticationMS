@@ -1,18 +1,21 @@
 pipeline {
     agent any
+
+
     stages {
-        stage('Stage 1#') {
+        stage('Pull') {
             steps {
-                script {
-                    echo 'Stage 1'
-                }
+                git branch: 'develop', credentialsId: 'eaaa17d0-6623-42da-b0b7-19b7c0949932', url: 'https://github.com/rajesh-ndv/authenticationMS.git'
             }
         }
-        stage('Stage 2#') {
-            steps {
-                script {
-                    echo 'Stage 2'
-                }
+        stage('Build'){
+            steps{
+                sh 'mvn clean install -DskipTests'
+            }
+        }
+        stage('Test'){
+            steps{
+                sh 'mvn test'
             }
         }
     }
