@@ -25,7 +25,6 @@ pipeline {
                     sh 'git merge develop'
                     sh 'git remote remove origin'
                     sh 'git remote add origin https://${GIT_USER_NAME}:${GIT_PASSWORD}@github.com/${GIT_USER_NAME}/authenticationMS.git'
-                    sh 'git remote set-url origin https://github.com/rajesh-ndv/authenticationMS.git'
                     sh 'git push origin main'
                 }
             }
