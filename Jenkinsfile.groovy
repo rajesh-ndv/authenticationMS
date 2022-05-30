@@ -20,10 +20,10 @@ pipeline {
         }
         stage('Deploy'){
             steps{
-                withCredentials([usernamePassword(credentialsId: 'eaaa17d0-6623-42da-b0b7-19b7c0949932', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USER_NAME')]) {
+                withCredentials([string(credentialsId: 'GithubPAT', variable: 'TOKEN')]) {
                     sh 'git checkout main'
                     sh 'git merge develop'
-                    sh 'git config --local credential.helper "!f() { echo username=\\GIT_USER_NAME; echo password=\\$GIT_PASSWORD; }; f"'
+                    sh 'git remote set-url origin https://${TOKEN}>@github.com/rajesh-ndv/authenticationMS.git'
                     sh 'git push origin main'
                 }
             }
