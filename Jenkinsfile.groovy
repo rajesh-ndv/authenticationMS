@@ -23,8 +23,6 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'eaaa17d0-6623-42da-b0b7-19b7c0949932', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USER_NAME')]) {
                     sh 'git checkout main'
                     sh 'git merge develop'
-                    sh 'echo $GIT_USER_NAME'
-                    sh 'echo $GIT_PASSWORD'
                     sh 'git push origin main'
                 }
             }
