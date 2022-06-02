@@ -19,15 +19,8 @@ pipeline {
             }
         }
         stage('Deploy'){
-            steps{
-                withCredentials([gitUsernamePassword(credentialsId: 'Github-PAT', gitToolName: 'Default'), usernamePassword(credentialsId: 'eaaa17d0-6623-42da-b0b7-19b7c0949932', passwordVariable: 'GIT_PAT', usernameVariable: 'GIT_USER')]) {
-                    sh 'git checkout main'
-                    sh 'git merge develop'
-                    sh 'echo $GIT_USER'
-                    sh 'echo $GIT_PAT'
-                    sh 'git config --local credential.helper "!f() { echo username=\\$GIT_USER; echo password=\\$GIT_PAT; }; f"'
-                    sh 'git push origin main'
-                }
+            steps {
+                build job: 'AMS Build Pipeline'
             }
         }
     }
