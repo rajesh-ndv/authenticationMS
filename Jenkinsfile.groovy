@@ -19,8 +19,10 @@ pipeline {
             }
         }
         stage('Sonar'){
-            withSonarQubeEnv(credentialsId: 'SonarKey') {
-                sh 'mvn sonar:sonar'
+            steps{
+                withSonarQubeEnv(credentialsId: 'SonarKey') {
+                    sh 'mvn sonar:sonar'
+                }
             }
         }
         stage('Deploy'){
