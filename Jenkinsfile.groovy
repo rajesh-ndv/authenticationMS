@@ -18,6 +18,11 @@ pipeline {
                 sh 'mvn test'
             }
         }
+        stage('Sonar'){
+            withSonarQubeEnv(credentialsId: 'SonarKey') {
+                sh 'mvn sonar:sonar'
+            }
+        }
         stage('Deploy'){
             steps {
                 build job: 'AMS Build Pipeline'
