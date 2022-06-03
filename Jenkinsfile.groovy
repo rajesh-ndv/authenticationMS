@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Sonar'){
             steps{
-                withSonarQubeEnv(credentialsId: 'SonarKey') {
+                withSonarQubeEnv(credentialsId: 'Sonar Server') {
                     sh 'mvn sonar:sonar'
                 }
             }
