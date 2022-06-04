@@ -16,7 +16,7 @@ public class BasicTestClass {
         while (i<j){
             int currSum = list.get(i)+list.get(j);
             if(currSum==target){
-                return true;
+                return false;
             }else if(currSum<target){
                 i++;
             }else{
