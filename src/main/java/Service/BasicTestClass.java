@@ -13,6 +13,7 @@ public class BasicTestClass {
     public boolean isExists(List<Integer> list,int target){
         Collections.sort(list);
         int i=0,j=list.size()-1;
+        System.out.println("Hi");
         while (i<j){
             int currSum = list.get(i)+list.get(j);
             if(currSum==target){
